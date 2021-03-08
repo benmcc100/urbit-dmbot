@@ -87,7 +87,7 @@ impl DMbot {
                         let mut poke2_data = json::JsonValue::new_object();
                         poke2_data["accept"] = json::JsonValue::new_object();
                         poke2_data["accept"]["term"] = "graph".to_string().into();
-                        poke2_data["accept"]["uid"] = poke_channel.uid.clone().into();
+                        poke2_data["accept"]["uid"] = invite_json["invite-update"]["invite"]["uid"].clone().into();
                         let _poke2_response = poke_channel.poke("invite-store", "invite-action", &poke_data);
                         // Poke hark-store to remove invite notification
                         // Something else needs to be done here to truly resolve the
